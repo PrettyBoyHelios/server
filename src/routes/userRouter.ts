@@ -1,7 +1,7 @@
 import express, {Request, Response} from 'express';
 import { body, validationResult } from "express-validator";
 import mongoose from 'mongoose';
-import { User } from 'src/models/users';
+import { User } from './../models/users';
 
 const router = express.Router();
 
@@ -26,12 +26,13 @@ body('password').isLength({
         })
     }
     console.log(req.body);
-    const newUser = User({
-        'email': body('email'),
-        'name': body('name')
+    const newUser = new User({
+        'email': req.body.email,
+        'name': req.body.name
     })
-    // TODO Add mongo db store logic
-    res.send( "Registering!!" );
+    // TODO Review unique entry in database
+    newUser.save();
+    res.status(200).send(newUser);
 } );
 
 
