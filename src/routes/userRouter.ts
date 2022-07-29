@@ -16,7 +16,7 @@ mongoose.connect(
 router.post(
     '/register/',
     body('email').isEmail().normalizeEmail(),
-    //body('phone').isMobilePhone("es-MX"),
+    body('phone').isMobilePhone("es-MX"),
     //body('password').isLength({
     //    max: 64,
     //    min: 8,
