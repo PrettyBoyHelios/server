@@ -43,7 +43,7 @@ router.post(
             if (user != null) {
                 return res.status(400).json({
                     success: false,
-                    errors: ['user already exists', user.email],
+                    errors: 'user already exists '+ user.email,
                 })
             } else {
                 const newUser = new User({
