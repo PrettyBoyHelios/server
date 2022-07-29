@@ -17,10 +17,10 @@ router.post(
     '/register/',
     body('email').isEmail().normalizeEmail(),
     body('phone').isMobilePhone("es-MX"),
-    //body('password').isLength({
+    // body('password').isLength({
     //    max: 64,
     //    min: 8,
-    //}),
+    // }),
     (req: Request, res: Response) => {
         const errors = validationResult(req)
 
@@ -58,7 +58,7 @@ router.post(
             }
         })
 
-        
+
     }
 )
 
